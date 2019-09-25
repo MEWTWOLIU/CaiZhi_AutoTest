@@ -5,7 +5,7 @@ import urllib3
 
 def gettoken():
     # 测试环境
-    host = "test.qtrade.com.cn"
+    host = "http://test.qtrade.com.cn"
     path = "/caizhi_miniapi/index/auth.do"
     userId = "mr.joker"
     corpId = "ww8c83d949a80b562d"
@@ -18,7 +18,9 @@ def gettoken():
 
     if "caizhi_managekey" in r.cookies :
         token = r.cookies
-
-    print("token获取成功！")
+        print("token获取成功！")
+    else:
+        token = ""
+        print("token获取失败！")
     return token
 
