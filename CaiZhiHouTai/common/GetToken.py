@@ -1,6 +1,5 @@
+from selenium import webdriver
 import requests
-from http import cookiejar
-import urllib3
 
 
 def gettoken():
@@ -10,17 +9,21 @@ def gettoken():
     userId = "mr.joker"
     corpId = "ww8c83d949a80b562d"
 
-    # 从cookie中获取caizhi_managekey
-    params = {"userId":userId,"corpId":corpId}
-    url = host + path
-    r = requests.get(url,params)
-    print(r)
+    # chromedrvier.exe存放位置
+    chrome_path = r"C:\Users\47557\AppData\Roaming\npm\node_modules\appium\node_modules\appium-chromedriver\chromedriver\win\chromedrvier.exe"
 
-    if "caizhi_managekey" in r.cookies :
-        token = r.cookies
-        print("token获取成功！")
+    # 从cookie中获取caizhi_managekey
+    Chromeparams = {"userId":userId,"corpId":corpId}
+    hosturl = host + path
+
+    # drivers = webdriver.Chrome()
+    req = requests.get(url=hosturl,params=Chromeparams)
+    print(req.cookies)
+    if "caizhi_key" in req.cookies :
+        cookies = req.cookies['caizhi_key']
+        print("token获取成功: "+cookies)
     else:
-        token = ""
+        cookies = ""
         print("token获取失败！")
-    return token
+    return cookies
 
