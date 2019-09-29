@@ -23,5 +23,4 @@ def getCookieFromChrome(url):
     rs = requests.session()
     req = rs.get(url)
     cookieDict = requests.utils.dict_from_cookiejar(req.cookies)
-    print(cookieDict)
     return cookieDict
