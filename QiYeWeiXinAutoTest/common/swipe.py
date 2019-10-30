@@ -14,7 +14,7 @@ def swipeUp(driver,t):
     L = getScreenSize(driver)
     x_start = int(L[0]*0.5)
     y_start = int(L[1]*0.75)
-    y_end = int*(L[1]*0.25)
+    y_end = int(L[1]*0.25)
     driver.swipe(x_start,y_start,x_start,y_end,t)
 
 def swipeDown(driver,t):
