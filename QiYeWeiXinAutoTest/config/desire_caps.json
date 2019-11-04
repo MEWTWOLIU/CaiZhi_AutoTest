@@ -1,0 +1,22 @@
+{
+  "host": "http://192.168.0.197:4723/wd/hub",
+  "automationName": "Appium",
+  "fullReset": "False",
+  "noReset": "true",
+  "chromeOptions": {"androidProcess": "com.tencent.wework"},
+  "mate20": {"platformName": "Android",
+             "platformVersion": "9",
+             "deviceName": "huaweiMate20",
+             "appPackage": "com.tencent.wework",
+             "appActivity": ".launch.LaunchSplashActivity",
+             "unid": "66J0219128011699"
+  },
+  "nova4": {"platformName": "Android",
+             "platformVersion": "9",
+             "deviceName": "nova4",
+             "appPackage": "com.tencent.wework",
+             "appActivity": ".launch.LaunchSplashActivity",
+             "unid": "GPGDU19129002582"
+  }
+
+}
