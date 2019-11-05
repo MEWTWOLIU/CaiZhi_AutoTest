@@ -1,16 +1,16 @@
 from selenium.webdriver.common.by import By
-
+from QiYeWeiXinAutoTest.common.Mylogger import logger
 from QiYeWeiXinAutoTest.common import swipe
 from QiYeWeiXinAutoTest.common.StartUp import startup
 from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.support.ui import WebDriverWait
 from assertpy import assert_that
-from time import sleep
+
 
 
 def OpenApp():
     try:
-        print("===========================启动小程序=========================")
+        logger.info("===========================启动小程序=========================")
         xPKeyValue = {
             '新翰财智': '/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.FrameLayout[2]/android.widget.RelativeLayout/android.support.v7.widget.RecyclerView/android.widget.RelativeLayout[14]/android.widget.TextView'
 
@@ -29,15 +29,15 @@ def OpenApp():
         locator = (By.ID, 'com.tencent.wework:id/ck')
         element = ec.presence_of_element_located(locator)
         result = WebDriverWait(driver,5).until(element)
-        print(result)
+        logger.info(result)
         assert_that(result).is_true()
-        print('成功打开财智小程序')
+        logger.info('成功打开财智小程序')
         return driver
 
     except AssertionError :
-        print('财智小程序打开失败')
+        logger.info('财智小程序打开失败')
         return None
 
     finally:
-        print("---------开始案例执行---------")
+        logger.info("---------开始案例执行---------")
 

@@ -1,4 +1,5 @@
 from appium import webdriver
+from QiYeWeiXinAutoTest.common.Mylogger import logger
 
 def startup():
     desired_caps = {
@@ -19,7 +20,7 @@ def startup():
     host = 'http://'+ip+':4723/wd/hub'  # appium访问路径
     driver = webdriver.Remote(host,desired_caps)
 
-    # print(type(driver))
+    # logging.info(type(driver))
 
     return driver
 
