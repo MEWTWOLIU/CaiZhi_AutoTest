@@ -5,13 +5,7 @@ nowTime = datetime.datetime.now().strftime("%Y-%m-%d")
 log_path = "C:/Users/47557/PycharmProjects/CaiZhi_AutoTest/QiyeWeiXinAutoTest/log/"
 logName = log_path+nowTime+".log"
 
-logging.basicConfig(filename="test.log",
-                    filemode="a", ##模式，有w和a，w就是写模式，每次都会重新写日志，覆盖之前的日志 #a是追加模式，默认如果不写的话，就是追加模式
-                    format="%(asctime)s %(name)s:%(levelname)s:%(message)s",
-                    datefmt="%Y-%M-%D %H:%M:%S",
-                    level=logging.DEBUG)
-
-logger = logging.getLogger("logger")
+logger = logging.getLogger()
 
 handler1 = logging.StreamHandler()
 handler2 = logging.FileHandler(filename=logName, encoding='utf-8')

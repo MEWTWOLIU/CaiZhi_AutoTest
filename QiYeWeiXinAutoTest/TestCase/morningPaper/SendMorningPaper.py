@@ -18,7 +18,11 @@ try:
     driver.implicitly_wait(3)
     driver.find_element_by_android_uiautomator('new UiSelector().textContains("发给客户")').click()
     sleep(1)
+    driver.find_element_by_android_uiautomator('new UiSelector().textContains("创建新聊天")').click()
+    sleep(1)
     driver.find_element_by_android_uiautomator('new UiSelector().textContains("八神")').click()
+    sleep(1)
+    driver.find_element_by_android_uiautomator('new UiSelector().textContains("确定")').click()
     sleep(1)
 
     driver.find_element_by_xpath(xpth['sendBtn2']).click()

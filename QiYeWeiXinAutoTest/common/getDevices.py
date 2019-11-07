@@ -23,8 +23,10 @@ def getDeviceInfo():
     try:
         # 获取手机unid
         if connectDevices():
-            deviceInfo = subprocess.check_output('adb devices')
-            logger.info("手机unid："+str(deviceInfo))
+            output = subprocess.check_output('adb devices')
+            deviceInfo = output.decode()
+            deviceUnid = re.findall('\r\n(.+?)\t', deviceInfo)
+            logger.info("手机unid："+deviceUnid[0]+'\n')
             return deviceInfo
         else:
             logger.info("---连接超时，请重新连接---")
@@ -35,8 +37,9 @@ def getDevicePlatVer():
     try:
         # 获取手机系统版本
         if connectDevices():
-            platformVersion = os.popen('adb shell getprop ro.build.version.release')
-            logger.info("手机系统为："+str(platformVersion))
+            file = os.popen('adb shell getprop ro.build.version.release')
+            platformVersion = file.read()
+            logger.info("手机系统为："+platformVersion+'\n')
             return platformVersion
         else:
             logger.info("--------获取手机系统版本失败，请重试！--------")
@@ -46,8 +49,9 @@ def getDevicePlatVer():
 def getDeviceName():
     try:
         if connectDevices():
-            deviceName = os.popen('adb shell getprop ro.product.name')
-            logger.info("手机名称"+str(deviceName))
+            file = os.popen('adb shell getprop ro.product.brand')
+            deviceName = file.read()
+            logger.info("手机名称: "+deviceName+'\n')
             return deviceName
         else:
             logger.info("--------获取手机名称失败，请重试--------")

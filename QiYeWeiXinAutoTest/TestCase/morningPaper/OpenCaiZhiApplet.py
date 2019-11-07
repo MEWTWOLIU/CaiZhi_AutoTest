@@ -34,8 +34,9 @@ def OpenApp():
         logger.info('成功打开财智小程序')
         return driver
 
-    except AssertionError :
+    except Exception as e :
         logger.info('财智小程序打开失败')
+        logger.error(e)
         return None
 
     finally:
