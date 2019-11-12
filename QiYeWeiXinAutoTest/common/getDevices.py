@@ -14,12 +14,12 @@ def connectDevices():
             logger.info("---发现设备---")
             return True
     except Exception as e:
-        logger.info("--------手机设备连接失败--------")
-        logger.error(e)
+        logger.error("--------手机设备连接失败--------")
+        logger.exception(e)
 
 
 
-def getDeviceInfo():
+def getDeviceUnid():
     try:
         # 获取手机unid
         if connectDevices():
@@ -27,13 +27,13 @@ def getDeviceInfo():
             deviceInfo = output.decode()
             deviceUnid = re.findall('\r\n(.+?)\t', deviceInfo)
             logger.info("手机unid："+deviceUnid[0]+'\n')
-            return deviceInfo
+            return deviceUnid[0]
         else:
             logger.info("---连接超时，请重新连接---")
     except Exception as e:
         logger.error(e)
 
-def getDevicePlatVer():
+def getDeviceSysVer():
     try:
         # 获取手机系统版本
         if connectDevices():
