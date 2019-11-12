@@ -1,4 +1,4 @@
-from QiYeWeiXinAutoTest.TestCase.morningPaper import OpenCaiZhiApplet
+from QiYeWeiXinAutoTest.common import OpenCaiZhiApplet
 from time import sleep
 from assertpy import assert_that
 from QiYeWeiXinAutoTest.common.Mylogger import logger
@@ -34,7 +34,7 @@ try:
     logger.info("分享早报成功")
 
 except Exception as e:
-    logger.info("分享早报失败")
-    logger.error(e)
+    logger.error("分享早报失败")
+    logger.exception(e)
 finally:
     logger.info("<--------分享早报案例结束-------->")
