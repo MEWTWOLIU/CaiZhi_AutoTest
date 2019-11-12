@@ -44,7 +44,7 @@ def getDeviceSysVer():
         else:
             logger.info("--------获取手机系统版本失败，请重试！--------")
     except Exception as e:
-        logger.error(e)
+        logger.exception(e)
 
 def getDeviceName():
     try:
@@ -56,4 +56,4 @@ def getDeviceName():
         else:
             logger.info("--------获取手机名称失败，请重试--------")
     except Exception as e:
-        logger.error(e)
+        logger.exception(e)
