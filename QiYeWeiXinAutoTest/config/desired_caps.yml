@@ -1,0 +1,14 @@
+desired_caps:
+  platformName: 'Android'
+  appPackage: 'com.tencent.wework'
+  appActivity: '.launch.LaunchSplashActivity'
+  automationName: 'Appium'
+  fullReset: 'False'
+  noReset: 'true'
+  chromeOptions:
+    androidProcess: 'com.tencent.wework'
+
+
+ip : '192.168.0.197'  # 服务器IP地址
+
+
