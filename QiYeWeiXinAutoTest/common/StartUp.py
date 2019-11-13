@@ -4,11 +4,12 @@ from QiYeWeiXinAutoTest.common.Mylogger import logger
 from QiYeWeiXinAutoTest.common.getDevices import *
 from QiYeWeiXinAutoTest.common.DoYml import *
 import yaml
+import sys
 
 def startup():
     try:
         # 读取desired_caps配置文件
-        file_path = '../config/desired_caps.yml'
+        file_path = 'C:/Users/47557/PycharmProjects/CaiZhi_AutoTest/QiYeWeiXinAutoTest/config/desired_caps.yml'
         desiredDefult = readYml(file_path)
 
         # 获取手机动态信息
@@ -32,5 +33,6 @@ def startup():
         return driver
     except Exception as e:
         logger.exception(e)
+        sys.exit()
 
 

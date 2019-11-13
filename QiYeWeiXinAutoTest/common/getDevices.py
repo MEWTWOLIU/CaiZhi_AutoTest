@@ -2,20 +2,26 @@
 from QiYeWeiXinAutoTest.common.Mylogger import logger
 import os,subprocess
 import re
+import sys
+
 
 def connectDevices():
     try:
         logger.info("--------开始检查手机设备连接情况--------")
-        deviceInfo = subprocess.check_output("adb devices")
-        if deviceInfo[1] == "":
+        output = subprocess.check_output('adb devices')
+        deviceInfo = output.decode()
+        deviceUnid = re.findall('\r\n(.+?)\t', deviceInfo)
+
+        if not deviceUnid :
             logger.info("---没有手机连接这台电脑！---")
-            return False
+            sys.exit()
         else:
             logger.info("---发现设备---")
             return True
     except Exception as e:
         logger.error("--------手机设备连接失败--------")
         logger.exception(e)
+        quit()
 
 
 

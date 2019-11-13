@@ -4,7 +4,7 @@ import yaml
 
 # 配置文件存放路径
 # file_path = '../config/desired_caps.yml'
-
+# 读取yaml文件
 def readYml(file_path):
     try:
         fopen = open(file_path, encoding='utf-8')

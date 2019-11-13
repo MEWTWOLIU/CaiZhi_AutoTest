@@ -17,7 +17,6 @@ def OpenApp():
         }
 
         driver = startup()
-
         driver.find_element_by_android_uiautomator('text("工作台")').click()
 
         swipe.swipeUp(driver,1000)
@@ -32,6 +31,7 @@ def OpenApp():
         logger.info(result)
         assert_that(result).is_true()
         logger.info('成功打开财智小程序')
+        logger.info("---------开始案例执行---------")
         return driver
 
     except Exception as e :
@@ -39,6 +39,5 @@ def OpenApp():
         logger.error(e)
         return None
 
-    finally:
-        logger.info("---------开始案例执行---------")
+
 
