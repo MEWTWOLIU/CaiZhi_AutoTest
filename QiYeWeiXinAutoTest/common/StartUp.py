@@ -9,7 +9,7 @@ import sys
 def startup():
     try:
         # 读取desired_caps配置文件
-        file_path = 'C:/Users/47557/PycharmProjects/CaiZhi_AutoTest/QiYeWeiXinAutoTest/config/desired_caps.yml'
+        file_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), './config/desired_caps.yml')
         desiredDefult = readYml(file_path)
 
         # 获取手机动态信息

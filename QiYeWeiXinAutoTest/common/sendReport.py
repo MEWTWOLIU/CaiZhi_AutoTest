@@ -1,5 +1,6 @@
 from QiYeWeiXinAutoTest.common.Mylogger import logger
 from QiYeWeiXinAutoTest.common.DoYml import *
+from QiYeWeiXinAutoTest.common.sendMail import sendMail
 import HTMLTestRunner
 import os
 import time
@@ -10,7 +11,8 @@ def sendReport(suite):
         # 报告文件名称及存放路径
         timestr = time.strftime('%Y%m%d%H%M%S',time.localtime())
         # 存放报告绝对路径
-        filepath = 'C:/Users/47557/PycharmProjects/CaiZhi_AutoTest/QiYeWeiXinAutoTest/report/'
+        # filepath = 'C:/Users/47557/PycharmProjects/CaiZhi_AutoTest/QiYeWeiXinAutoTest/report/'
+        filepath = os.path.join(os.path.dirname(os.path.dirname(__file__)), './report/')
         reportPath = filepath + timestr + '.html'
 
         # 报告title
@@ -21,6 +23,7 @@ def sendReport(suite):
             runner = HTMLTestRunner.HTMLTestRunner(stream=R,verbosity=2,title=title,description='撰写人：刘洋')
             # 执行测试
             runner.run(suite)
+        sendMail(reportPath)
         logger.info("----------测试报告已生成，请前往查看-----------")
 
     except Exception as e:

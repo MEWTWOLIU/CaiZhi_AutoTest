@@ -9,6 +9,6 @@ desired_caps:
     androidProcess: 'com.tencent.wework'
 
 
-ip : '192.168.0.197'  # 服务器IP地址
+ip : '192.168.0.100'  # 服务器IP地址
 
 

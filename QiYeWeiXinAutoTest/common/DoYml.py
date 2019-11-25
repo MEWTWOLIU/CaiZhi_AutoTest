@@ -3,12 +3,17 @@ from QiYeWeiXinAutoTest.common.Mylogger import *
 import yaml
 
 # 配置文件存放路径
-# file_path = '../config/desired_caps.yml'
+# 参数：
+# file_path =  例：'../config/desired_caps.yml'
 # 读取yaml文件
+# 编写人：刘洋
+# 创建时间：2019-11-4
 def readYml(file_path):
     try:
         fopen = open(file_path, encoding='utf-8')
-        print(type(fopen))
+        if not fopen :
+            logger.error("文件为空或文件路径不正确！")
+            sys.exit()
         fload = yaml.load(fopen, Loader=yaml.FullLoader)
         fopen.close()
         logger.info("读取成功")

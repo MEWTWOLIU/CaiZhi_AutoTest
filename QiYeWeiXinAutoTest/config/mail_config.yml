@@ -1,0 +1,8 @@
+baseicConfig:
+    smtpserver : 'smtp.exmail.qq.com'
+    user : 'liuyang@Qtrade.com.cn'
+    password : 'txyvmkcjVAtq7HDp'
+    sender : 'liuyang@Qtrade.com.cn'
+    receiver : '475571758@163.com'
+    subject : '腾银自动化测试报告'
+
