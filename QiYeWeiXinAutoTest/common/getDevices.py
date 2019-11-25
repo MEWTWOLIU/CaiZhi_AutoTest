@@ -63,3 +63,5 @@ def getDeviceName():
             logger.info("--------获取手机名称失败，请重试--------")
     except Exception as e:
         logger.exception(e)
+
+

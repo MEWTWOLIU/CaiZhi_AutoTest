@@ -3,6 +3,8 @@ from appium import webdriver
 from QiYeWeiXinAutoTest.common.Mylogger import logger
 from QiYeWeiXinAutoTest.common.getDevices import *
 from QiYeWeiXinAutoTest.common.DoYml import *
+from QiYeWeiXinAutoTest.common.getHost import getHost
+
 import yaml
 import sys
 
@@ -23,8 +25,9 @@ def startup():
         desired_caps = {}
         desired_caps.update(desiredDefult['desired_caps'])
         desired_caps.update(desiredDynamic)
+        ip = getHost()
 
-        host = 'http://'+desiredDefult['ip']+':4723/wd/hub'  # appium访问路径deviceName: 'HUAWEI
+        host = 'http://'+ip+':4723/wd/hub'  # appium访问路径deviceName: 'HUAWEI
 
         driver = webdriver.Remote(host, desired_caps)
 
