@@ -16,11 +16,11 @@ def readYml(file_path):
             sys.exit()
         fload = yaml.load(fopen, Loader=yaml.FullLoader)
         fopen.close()
-        logger.info("读取成功")
+        logger.info("文件读取成功")
         return fload
     except Exception as e:
         logger.exception(e)
-        logger.error("读取失败")
+        logger.error("文件读取失败")
 
 
 # 暂时没用上写的

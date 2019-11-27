@@ -6,8 +6,11 @@ from QiYeWeiXinAutoTest.common.DoYml import *
 from QiYeWeiXinAutoTest.common.sendMail import sendMail
 from QiYeWeiXinAutoTest.common.sendReport import sendReport
 from QiYeWeiXinAutoTest.TestCase.qywx.AddClient import AddClient
+from QiYeWeiXinAutoTest.common.getHost import getHost
+from QiYeWeiXinAutoTest.common.DoAppium import StopAppium,StartAppium
 import yaml
 import time
+from time import sleep
 import unittest
 import HTMLTestRunner
 
@@ -18,7 +21,19 @@ if __name__ == '__main__':
     # f = readYml(path)
     # 有问题，明天接着查 ，addTest里面不能用str，要用具体的TestCase类
 
-    suite = unittest.TestSuite()
-    suite.addTest(AddClient.test_addclient())
-    sendReport(suite)
+    # suite = unittest.TestSuite()
+    # suite.addTest(AddClient.test_addclient)
+    # sendReport(suite)
+
+    # 启动appium server
+    StartAppium()
+
+    # test = AddClient()
+    # test.test_addclient()
+    # #
+    # # #关闭appiusm server
+    StopAppium()
+
+
+
 
