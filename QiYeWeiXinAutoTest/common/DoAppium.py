@@ -5,9 +5,9 @@ import re
 from time import sleep
 
 
-def StartAppium():
+def StartAppium(port):
     try:
-        findport = os.popen('netstat -aon | findstr 4723').read()
+        findport = os.popen('netstat -aon | findstr "%s"' % port).read()
         if findport:
             logger.info("有Appium在运行，先kill掉")
             StopAppium()
@@ -19,17 +19,17 @@ def StartAppium():
         AppiumLogPath = os.path.join(os.path.dirname(os.path.dirname(__file__)), './log/', path)
 
         # 命令行启动appium
-        os.system('start /b appium -a 0.0.0.0 -p 4723  --log ' + AppiumLogPath +' --local-timezone')
+        os.system('start /b appium -a 0.0.0.0 -p ' + port +' --log ' + AppiumLogPath +' --local-timezone')
         sleep(3)
 
     except Exception as e:
         logger.exception(e)
 
 
-def StopAppium():
+def StopAppium(port):
     try:
         # 查询appium进程端口
-        killProcess(4723)
+        killProcess(port)
         logger.info("Appium已关闭")
 
         # 查询adb.exe端口
