@@ -4,14 +4,26 @@ import os
 import re
 from time import sleep
 
+def CheckAppium(port):
+    try:
+        Start_port = str(port)
+        findport = os.popen('netstat -aon | findstr {}'.format(Start_port)).read()
+        if findport:
+            logger.info("有Appium在运行，先kill掉")
+            StopAppium(Start_port)
+
+
+    except Exception as e:
+        logger.exception(e)
 
 def StartAppium(port):
     try:
-        findport = os.popen('netstat -aon | findstr "%s"' % port).read()
-        if findport:
-            logger.info("有Appium在运行，先kill掉")
-            StopAppium()
-
+        # Start_port = str(port)
+        # findport = os.popen('netstat -aon | findstr {}'.format(Start_port)).read()
+        # if findport:
+        #     logger.info("有Appium在运行，先kill掉")
+        #     StopAppium(Start_port)
+        Start_port = str(port)
         logger.info("启动Appium")
 
         # 设置appium日志存储路径
@@ -19,7 +31,7 @@ def StartAppium(port):
         AppiumLogPath = os.path.join(os.path.dirname(os.path.dirname(__file__)), './log/', path)
 
         # 命令行启动appium
-        os.system('start /b appium -a 0.0.0.0 -p ' + port +' --log ' + AppiumLogPath +' --local-timezone')
+        os.system('start /b appium -a 0.0.0.0 -p ' + Start_port +' --log ' + AppiumLogPath +' --local-timezone')
         sleep(3)
 
     except Exception as e:
@@ -32,9 +44,8 @@ def StopAppium(port):
         killProcess(port)
         logger.info("Appium已关闭")
 
-        # 查询adb.exe端口
-        killProcess(5037)
-        logger.info("adb.exe已关闭")
+
+
 
     except Exception as e:
         logger.exception(e)
@@ -52,7 +63,16 @@ def killProcess(port):
             # 杀掉对应进程
             os.system('taskkill /f /pid ' + processNum)
         else:
-            logger.info("端口没有启动，不需要关闭")
+            logger.info(str(port) + "端口没有启动，不需要关闭")
+
+    except Exception as e:
+        logger.exception(e)
+
+def killadb():
+    try:
+        # 查询adb.exe端口
+        killProcess(5037)
+        logger.info("adb.exe已关闭")
 
     except Exception as e:
         logger.exception(e)

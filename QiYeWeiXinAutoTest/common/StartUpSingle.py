@@ -8,6 +8,8 @@ from QiYeWeiXinAutoTest.common.getHost import getHost
 import yaml
 import sys
 
+
+# 启动企业微信app 单一手机接入情况
 def startup():
     try:
         # 读取desired_caps配置文件
@@ -16,14 +18,14 @@ def startup():
 
         # 获取手机动态信息
         desiredDynamic = {
-            'deviceName': getDeviceName().replace('\n', '').replace('\r', ''),
-            'unid': getDeviceUnid().replace('\n', '').replace('\r', ''),
+            # 'deviceName': getDeviceName().replace('\n', '').replace('\r', ''),
+            'unid': getDeviceUnid()[0].replace('\n', '').replace('\r', ''),
             'platformVersion': getDeviceSysVer().replace('\n', '').replace('\r', '')
         }
 
         # 把配置文件和动态获取的手机信息合并为desired_caps
         desired_caps = {}
-        desired_caps.update(desiredDefult['desired_caps'])
+        desired_caps.update(desiredDefult["desired_caps_mate20"])
         desired_caps.update(desiredDynamic)
         ip = getHost()
 

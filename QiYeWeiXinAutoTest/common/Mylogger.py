@@ -1,8 +1,13 @@
 import logging.handlers
 import datetime
+import os
 
 nowTime = datetime.datetime.now().strftime("%Y-%m-%d")
-log_path = "C:/Users/47557/PycharmProjects/CaiZhi_AutoTest/QiyeWeiXinAutoTest/log/"
+# log_path = "C:/Users/47557/PycharmProjects/CaiZhi_AutoTest/QiyeWeiXinAutoTest/log/"
+path = os.path.dirname(os.path.dirname(__file__))
+print(path)
+log_path = os.path.join(path,'./log/')
+print(log_path)
 logName = log_path+nowTime+".log"
 
 logger = logging.getLogger()

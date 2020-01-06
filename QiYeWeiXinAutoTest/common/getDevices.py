@@ -32,8 +32,10 @@ def getDeviceUnid():
             output = subprocess.check_output('adb devices')
             deviceInfo = output.decode()
             deviceUnid = re.findall('\r\n(.+?)\t', deviceInfo)
-            logger.info("手机unid："+deviceUnid[0]+'\n')
-            return deviceUnid[0]
+            # logger.info("手机unid："+deviceUnid[0]+'\n')
+            # return deviceUnid[0]
+            logger.info(deviceUnid)
+            return deviceUnid
         else:
             logger.info("---连接超时，请重新连接---")
     except Exception as e:

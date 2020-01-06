@@ -1,14 +1,35 @@
-desired_caps:
+desired_caps_mate20:
   platformName: 'Android'
   appPackage: 'com.tencent.wework'
   appActivity: '.launch.LaunchSplashActivity'
   automationName: 'Appium'
   fullReset: 'False'
   noReset: 'true'
+  deviceName: 'mate20'
+  platformVersion: '9'
+#  unicodeKeyboard: 'True'
+#  resetKeyboard: 'True'
   chromeOptions:
     androidProcess: 'com.tencent.wework'
  # skipServerInstallation: 'true'
  # skipDeviceInitialization: 'true'
+
+desired_caps_oppo:
+  platformName: 'Android'
+  appPackage: 'com.tencent.wework'
+  appActivity: '.launch.LaunchSplashActivity'
+  automationName: 'Appium'
+  fullReset: 'False'
+  noReset: 'true'
+  deviceName: 'oppo'
+  platformVersion: '9'
+  chromeOptions:
+    androidProcess: 'com.tencent.wework'
+
+ # skipServerInstallation: 'true'
+ # skipDeviceInitialization: 'true'
+
+
 
 
 
