@@ -1,3 +1,4 @@
+# -*- coding:utf-8 -*-
 from QiYeWeiXinAutoTest.common.Mylogger import logger
 import datetime
 import os

@@ -1,3 +1,4 @@
+# -*- coding:utf-8 -*-
 import logging.handlers
 import datetime
 import os

@@ -1,14 +1,16 @@
+# -*- coding:utf-8 -*-
 from QiYeWeiXinAutoTest.common.OpenCaiZhiApplet import OpenApp
 from time import sleep
 from assertpy import assert_that
 from QiYeWeiXinAutoTest.common.DoAppium import StartAppium, StopAppium
 from QiYeWeiXinAutoTest.common.Mylogger import logger
+from QiYeWeiXinAutoTest.common.findElement import findElement
 
 import unittest
 
 class SendMorningPaper(unittest.TestCase):
 
-    def test_SendMorningPaper(self):
+    def test_SendMorningPaper():
         try:
             xpth = {
                 'sendBtn1': '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.FrameLayout[2]/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.webkit.WebView/android.view.View[22]',
@@ -16,18 +18,18 @@ class SendMorningPaper(unittest.TestCase):
                 'sendBtn3': '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.FrameLayout[2]/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.webkit.WebView/android.view.View[24]/android.view.View[4]/android.view.View'
             }
 
-            driver = OpenApp()
+            driver = findElement(OpenApp())
+            # driver = OpenApp()
+            # 还需要调整这个地方的androidtext的识别
+            driver.findElement("android_text", "营销").click()
 
             logger.info("<--------分享早报案例开始-------->")
-            driver.implicitly_wait(10)
-            driver.find_element_by_android_uiautomator('new Uiselector().textContains("营销")').click()
-            # driver.find_element_by_xpath(xpth['sendBtn3']).click()
-            driver.implicitly_wait(3)
+            sleep(1)
             # driver.find_element_by_android_uiautomator('new UiSelector().textContains("每日早报")').click()
             driver.find_element_by_android_uiautomator('new UiSelector().textContains("午间趣谈")').click()
-            driver.implicitly_wait(3)
+            sleep(1)
             driver.find_element_by_xpath(xpth['sendBtn1']).click()
-            driver.implicitly_wait(3)
+            sleep(1)
             driver.find_element_by_android_uiautomator('new UiSelector().textContains("发给客户")').click()
             sleep(1)
             driver.find_element_by_android_uiautomator('new UiSelector().textContains("创建新聊天")').click()

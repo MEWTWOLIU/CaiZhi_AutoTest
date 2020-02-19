@@ -1,3 +1,4 @@
+# -*- coding:utf-8 -*-
 from QiYeWeiXinAutoTest.common.getDevices import *
 from QiYeWeiXinAutoTest.common.Mylogger import *
 import yaml

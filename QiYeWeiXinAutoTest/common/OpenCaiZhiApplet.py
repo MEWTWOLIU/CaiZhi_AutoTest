@@ -1,3 +1,4 @@
+# -*- coding:utf-8 -*-
 from selenium.webdriver.common.by import By
 from QiYeWeiXinAutoTest.common.Mylogger import logger
 from QiYeWeiXinAutoTest.common import swipe

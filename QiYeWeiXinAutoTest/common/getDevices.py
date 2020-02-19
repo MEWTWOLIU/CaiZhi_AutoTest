@@ -1,4 +1,4 @@
-# 自动获取设备信息
+# -*- coding:utf-8 -*-
 from QiYeWeiXinAutoTest.common.Mylogger import logger
 import os,subprocess
 import re

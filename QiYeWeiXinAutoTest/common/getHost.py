@@ -1,3 +1,4 @@
+# -*- coding:utf-8 -*-
 import socket
 
 # 通过计算机名称来获取计算机IP地址
